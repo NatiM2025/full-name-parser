@@ -10,13 +10,27 @@ public class FullNameParser {
         int spaceIndex = fullName.indexOf(" ");
         int lastSpace = fullName.lastIndexOf(" ");
 
-        String firstName = fullName.substring(0,spaceIndex);
-        String middleName = fullName.substring(spaceIndex +1,lastSpace);
-        String lastName = fullName.substring(lastSpace +1);
+        input.close();
 
-        System.out.println(firstName);
-        System.out.println(middleName);
-        System.out.println(lastName);
+        if (spaceIndex == -1) {
+            String firstName = fullName;
+            System.out.println(firstName);
+        }
+        else if (spaceIndex == lastSpace) {
+            String firstName = fullName.substring(0, spaceIndex);
+            String lastName = fullName.substring(lastSpace + 1);
+
+            System.out.println(firstName);
+            System.out.println(lastName);
+        }else {
+            String firstName = fullName.substring(0, spaceIndex);
+            String middleName = fullName.substring(spaceIndex +1,lastSpace);
+            String lastName = fullName.substring(lastSpace + 1);
+
+            System.out.println(firstName);
+            System.out.println(middleName);
+            System.out.println(lastName);
+        }
 
 
     }
